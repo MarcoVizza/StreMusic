@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Cerca</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
     <link rel="stylesheet" href="css/stile.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
   </head>
   <body>
@@ -18,127 +19,228 @@
     </header>
 
     <main>
-        <div class="menu_side">
-            <h1>StreaMusic</h1>
-            <div class="playlist">
-                <h4><span><a href ="home.html"></span>Home</h4></a>
-                <h4 class ="active"><span></span>Cerca</h4></a>
-                <h4><span><a href ="libreria.html"></span>La tua libreria</h4></a>
-            </div>
+      <div class="menu_side">
+        <h1>StreaMusic</h1>
+        <div class="playlist">
+          <h4><span><a href ="home.html"></span>Home</h4></a>
+          <h4 class ="active"><span></span>Search</h4>
+          <h4><span><a href ="libreria.html"></span>Your libreries</h4></a>
+        </div>
+
+        <div class="menu_song">
+          <li class="songItem" data-src="audio/travis.mp3" data-img="immagini/hit.jpg" data-title="FE!N" data-artist="Travis Scott">
+            <span>01</span>
+            <img src="immagini/hit.jpg" alt="Queen">
+            <h5>FE!N
+              <div class="subtitle"> Travis Scott</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="1"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/eminem.mp3" data-img="immagini/rap.jpg" data-title="Lose yourself" data-artist="Eminem">
+            <span>02</span>
+            <img src="immagini/rap.jpg" alt="Queen">
+            <h5>Lose yourself
+              <div class="subtitle"> Eminem</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="2"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/avicii.mp3" data-img="immagini/2010.jpg" data-title="The nights" data-artist="Avicii">
+            <span>03</span>
+            <img src="immagini/2010.jpg" alt="Queen">
+            <h5>The nights
+              <div class="subtitle"> Avicii</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="3"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/sultan.mp3" data-img="immagini/rock.jpg" data-title="Sultan of Swing" data-artist="Dire Straits">
+            <span>04</span>
+            <img src="immagini/rock.jpg" alt="Queen">
+            <h5>Sultan of Swing
+              <div class="subtitle"> Dire Straits</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="4"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/Lykke.mp3" data-img="immagini/chill.jpg" data-title="I follow Rivers" data-artist="Lykke Li">
+            <span>05</span>
+            <img src="immagini/chill.jpg" alt="Queen">
+            <h5>I Follow Rivers
+              <div class="subtitle"> Lykke Li</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="5"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/monaco.mp3" data-img="immagini/latino.jpg" data-title="Monaco" data-artist="Bad Bunny">
+            <span>06</span>
+            <img src="immagini/latino.jpg" alt="Queen">
+            <h5>Monaco
+              <div class="subtitle"> Bad Bunny</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="6"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/einaudi.mp3" data-img="immagini/piano.jpg" data-title="Fly" data-artist="Ludovico Einaudi">
+            <span>07</span>
+            <img src="immagini/piano.jpg" alt="Queen">
+            <h5>Fly
+              <div class="subtitle"> Ludovico Einaudi</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="7"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/interstellar.mp3" data-img="immagini/focus.jpg" data-title="Cornfield Chase" data-artist="Hans Zimmer">
+            <span>08</span>
+            <img src="immagini/focus.jpg" alt="Queen">
+            <h5>Cornfield Chase
+              <div class="subtitle">Hans Zimmer</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="8"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/pedro.mp3" data-img="immagini/instrumental.jpg" data-title="Pedro" data-artist="Raffaella Carrà">
+            <span>09</span>
+            <img src="immagini/instrumental.jpg" alt="Queen">
+            <h5>Pedro
+              <div class="subtitle"> Raffaella Carrà</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="9"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/sigue.mp3" data-img="immagini/chillStudy.jpg" data-title="Sigue" data-artist="Beny Jr">
+            <span>10</span>
+            <img src="immagini/chillStudy.jpg" alt="Queen">
+            <h5>Sigue
+              <div class="subtitle"> Beny Jr</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="10"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/death.mp3" data-img="immagini/coding.jpg" data-title="Death of A Bluebird" data-artist="Rorschach Roy">
+            <span>11</span>
+            <img src="immagini/coding.jpg" alt="Queen">
+            <h5>Death of A Bluebird
+              <div class="subtitle"> Rorschach Roy</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="11"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/better.mp3" data-img="immagini/focus.jpg" data-title="Better Now" data-artist="Post Malone">
+            <span>12</span>
+            <img src="immagini/focus.jpg" alt="Queen">
+            <h5>Better Now
+              <div class="subtitle"> Post Malone</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="12"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/gigi.mp3" data-img="immagini/booster.jpg" data-title="L'Amour Toujours" data-artist="Gigi D'agostin">
+            <span>13</span>
+            <img src="immagini/booster.jpg" alt="Queen">
+            <h5>L'Amour Toujours
+              <div class="subtitle"> Gigi D'agostino</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="13"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/billie.mp3" data-img="immagini/good.jpg" data-title="Billie Jean" data-artist="Michael Jackson">
+            <span>14</span>
+            <img src="immagini/good.jpg" alt="Queen">
+            <h5>Billie Jean
+              <div class="subtitle"> Michael Jackson</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="14"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/survivor.mp3" data-img="immagini/stormy.jpg" data-title="Eye of Tiger" data-artist="Survivor">
+            <span>15</span>
+            <img src="immagini/stormy.jpg" alt="Queen">
+            <h5>Eye of Tiger
+              <div class="subtitle"> Survivor</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="15"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/StarBoy.mp3" data-img="immagini/mySelf.jpg" data-title="StarBoy" data-artist="StarBoy">
+            <span>16</span>
+            <img src="immagini/mySelf.jpg" alt="Queen">
+            <h5>StarBoy
+              <div class="subtitle"> The Weeknd</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="16"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/last promise.mp3" data-img="immagini/chillTracks.jpg" data-title="Last Promise" data-artist="Seen Twice">
+            <span>17</span>
+            <img src="immagini/chillTracks.jpg" alt="Queen">
+            <h5>Last Promise
+              <div class="subtitle"> Seen Twice</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="17"></i>
+            </h5>
+          </li>
+
+          <li class="songItem" data-src="audio/Cinderella.mp3" data-img="immagini/goodPiano.jpg" data-title="Cinderella" data-artist="Travis Scott">
+            <span>18</span>
+            <img src="immagini/goodPiano.jpg" alt="Queen">
+            <h5>Cinderella
+              <div class="subtitle"> Travis Scott</div>
+              <i class="bi playlistPlay bi-play-circle-fill" id="18"></i>
+            </h5>
+          </li>
+        </div>
+      </div>
     
-            <div class="menu_song">
-              <li class="songItem">
-                <span>01</span>
-                <img src="immagini/queen.png" alt="Queen">
-                <h5>Bohemian Rhapsody
-                  <div class="subtitle"> Queen</div>
-                  <i class="bi playlistPlay bi-play-circle-fill" id="1"></i>
-                </h5>
-              </li>
-    
-              <li class="songItem">
-                <span>02</span>
-                <img src="immagini/queen.png" alt="Queen">
-                <h5>Bohemian Rhapsody
-                  <div class="subtitle"> Queen</div>
-                  <i class="bi playlistPlay bi-play-circle-fill" id="2"></i>
-                </h5>
-              </li>
-    
-              <li class="songItem">
-                <span>03</span>
-                <img src="immagini/queen.png" alt="Queen">
-                <h5>Bohemian Rhapsody
-                  <div class="subtitle"> Queen</div>
-                  <i class="bi playlistPlay bi-play-circle-fill" id="3"></i>
-                </h5>
-              </li>
-    
-              <li class="songItem">
-                <span>04</span>
-                <img src="immagini/queen.png" alt="Queen">
-                <h5>Bohemian Rhapsody
-                  <div class="subtitle"> Queen</div>
-                  <i class="bi playlistPlay bi-play-circle-fill" id="4"></i>
-                </h5>
-              </li>
-    
-              <li class="songItem">
-                <span>05</span>
-                <img src="immagini/queen.png" alt="Queen">
-                <h5>Bohemian Rhapsody
-                  <div class="subtitle"> Queen</div>
-                  <i class="bi playlistPlay bi-play-circle-fill" id="5"></i>
-                </h5>
-              </li>
-    
-              <li class="songItem">
-                <span>06</span>
-                <img src="immagini/queen.png" alt="Queen">
-                <h5>Bohemian Rhapsody
-                  <div class="subtitle"> Queen</div>
-                  <i class="bi playlistPlay bi-play-circle-fill" id="6"></i>
-                </h5>
-              </li>
-    
-              <li class="songItem">
-                <span>07</span>
-                <img src="immagini/queen.png" alt="Queen">
-                <h5>Bohemian Rhapsody
-                  <div class="subtitle"> Queen</div>
-                  <i class="bi playlistPlay bi-play-circle-fill" id="7"></i>
-                </h5>
-              </li>
-    
-              <li class="songItem">
-                <span>08</span>
-                <img src="immagini/queen.png" alt="Queen">
-                <h5>Bohemian Rhapsody
-                  <div class="subtitle"> Queen</div>
-                  <i class="bi playlistPlay bi-play-circle-fill" id="8"></i>
-                </h5>
-              </li>
-    
-              <li class="songItem">
-                <span>09</span>
-                <img src="immagini/queen.png" alt="Queen">
-                <h5>Bohemian Rhapsody
-                  <div class="subtitle"> Queen</div>
-                  <i class="bi playlistPlay bi-play-circle-fill" id="9"></i>
-                </h5>
-              </li>
-    
-              <li class="songItem">
-                <span>10</span>
-                <img src="immagini/queen.png" alt="Queen">
-                <h5>Bohemian Rhapsody
-                  <div class="subtitle"> Queen</div>
-                  <i class="bi playlistPlay bi-play-circle-fill" id="10"></i>
-                </h5>
-              </li>
-            </div>
-          </div>
-    
-          <div class="song_side" style="padding-left: 20px;">
-            <div class='container'>        
-                <form action=''>
+          <div class="song_side">
+            <div class="main-container">
+              <div class="topbar">
+                <div class="prev-next-buttons">
+                  <button type="button" class="fa fas fa-chevron-left"></button>
+                  <button type="button" class="fa fas fa-chevron-right"></button>
+                </div>
+                
+                <div class="navbar">
+                  <ul>
+                    <li>
+                      <a href="#">Support</a>
+                    </li>
+                    <li>
+                      <a href="#">Download</a>
+                    </li>
+                    <li class="divider">|</li>
+                    <li>
+                      <a href="registrati.html">Sing Up</a>
+                    </li>
+                  </ul>
+                  <a href="accesso.html">
+                    <button type="button">Log In</button>
+                  </a>
+                    </div>
+                  </div>
+
+                <form id="searchForm" style="padding-left: 20px;">
                     <input type='hidden' id='hidden_token'>
+
                     <div class='col-sm-6 form-group row mt-4 px-0'>
-                        <label for='Genre' class='form-label col-sm-2'>Genere:</label>
-                        <select name='' id='select_genre' class='form-control form-control-sm col-sm-10'>
-                            <option>Seleziona</option>                    
+                        <label for='select_genre' class='form-label col-sm-2'>Genere:</label>
+                        <select id='select_genre' class='form-control form-control-sm col-sm-10'>
+                            <option value="">Seleziona</option>
                         </select>
                     </div>
+
                     <div class='col-sm-6 form-group row px-0'>
-                        <label for='Genre' class='form-label col-sm-2'>Playlist:</label>
-                        <select name='' id='select_playlist' class='form-control form-control-sm col-sm-10'>
-                            <option>Seleziona</option>                    
+                        <label for='select_playlist' class='form-label col-sm-2'>Playlist:</label>
+                        <select id='select_playlist' class='form-control form-control-sm col-sm-10'>
+                            <option value="">Seleziona</option>
                         </select>
-                    </div>                  
+                    </div>   
+
                     <div class='col-sm-6 row form-group px-0'>
                         <button type='submit' id='btn_submit' class='btn btn-success col-sm-12'>Cerca</button>
                     </div>          
-                </form>        
+                </form>    
+
                 <div class='row'>
                     <div class='col-sm-6 px-0'>
                         <div class='list-group song-list'></div>
@@ -146,18 +248,51 @@
                     <div class='offset-md-1 col-sm-4' id='song-detail'></div>
                 </div>   
             </div>
+        </div>
+
+
+        <div class="master_play" id="master_play">
+          <div class="wave" id="wave"></div>
+          <img src="immagini/chill.jpg" alt="" id="poster_master_play">
+          <h5 id ="title">
+            Dire Straits
+            <di class="subtitle">uaglio</di>
+          </h5>
+          
+          <i class="bi suffle bi-heart" id="cuore"></i>
+  
+          <div class="icon">
+            <i class="bi bi-skip-start-fill" id="prev"></i>
+            <i class="bi bi-play-fill" id="play"></i>
+            <i class="bi bi-skip-end-fill" id="next"></i>
           </div>
-    
-          <div class="master_play" id="master_play">
-            <div class="wave" id="wave">
-            </div>
-            <img src="" alt="" id="poster_master_play">
+  
+          <span id="currentStart">0:00</span>
+          <div class="bar">
+            <input type="range" id="seek" min="0" max="100">
+            <div class="bar2" id="bar2"></div>
+            <div class="dot"></div>
           </div>
+  
+          <span id="currentEnd">0:30</span>
+          <div class="vol">
+            <i class="bi bi-volume-down-fill"></i>
+            
+            <div class="vol_bar">
+            <div class="dot"></div>
+          </div>
+            <input type="range" min="0" max="100" value="50">
+          </div>
+  
+          <audio id="audio"></audio>
+        </div>
     </main>
     <footer></footer>
 
       <script src='https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js'></script>
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js'></script><script  src="js/scriptCerca.js"></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js'></script>
+      <script  src="js/scriptCerca.js"></script>
+      <script  src="js/scriptHome.js"></script>
 
   </body>
 </html>

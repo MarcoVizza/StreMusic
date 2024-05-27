@@ -77,7 +77,12 @@ main .master_play {
     position: fixed;
     bottom: 0;
     padding: 0 20px;
+    justify-content: flex-start;
 }
+
+#master_play {
+    display: none;
+  }
 
 main .menu_side h1 {
     font-size: 20px;
@@ -98,15 +103,20 @@ main .menu_side .playlist h4 {
     cursor: pointer;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 main .menu_side .playlist h4:hover {
     color: #fff;
+    text-decoration: none;
 }
 
 main .menu_side .playlist h4 span {
     position: relative;
     margin-right: 35px;
+    color: #fff;
+    list-style: none;
+    text-decoration: none;
 }
 
 main .menu_side .playlist h4 span::before {
@@ -118,10 +128,12 @@ main .menu_side .playlist h4 span::before {
     border-radius: 50%;
     top: -4px;
     transition: border-color 0.3s linear;
+    text-decoration: none;
 }
 
 main .menu_side .playlist h4:hover span::before {
     border-color: white;
+    text-decoration: none;
 }
 
 main .menu_side .playlist h4 .bi {
@@ -224,119 +236,97 @@ main .menu_side .menu_song li .bi {
     text-overflow: ellipsis;
     white-space: nowrap;
  }
-
- main .master_play .icon .bi{
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    font-size: 20px;
- }
-
- main .master_play #cuore {
-    margin-right: 50px;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    font-size: 20px;
- }
-
- main .master_play span{
-    color: #fff;
-    width: 32px;
-    font-size: 13px;
-    font-weight: 400;
- }
-
- main .master_play #currentStart{
-    margin: 0px 0px 0px 20px;
- }
-
- main .master_play .bar{
+main .master_play .icon .bi{
+   cursor: pointer;
+   outline: none;
+   color: #fff;
+   font-size: 20px;
+}
+main .master_play #cuore {
+   margin-right: 50px;
+   cursor: pointer;
+   outline: none;
+   color: #fff;
+   font-size: 20px;
+}
+main .master_play span{
+   color: #fff;
+   width: 32px;
+   font-size: 13px;
+   font-weight: 400;
+}
+main .master_play #currentStart{
+   margin: 0px 0px 0px 20px;
+}
+main .master_play .bar {
     position: relative;
     width: 43%;
     height: 2px;
     background: #2f2f2f;
     margin: 0px 15px 0px 10px;
- }
-
- main .master_play .bar .bar2{
+  }
+  
+  main .master_play .bar .bar2 {
     position: absolute;
     background: #fff;
-    width: 50%;
+    width: 0%; /* Iniziamo con la larghezza a 0 */
     top: 0%;
     height: 100%;
-    transition: 1s linear;
- }
+    transition: width 0.1s linear;
+  }
+  
+main .master_play .bar input{
+   position: absolute;
+   width: 100%;
+   cursor: pointer;
+   left: 0px;
+   top: -7px;
+   z-index: 99999999999999999999999999999999999999999;
+   opacity: 0;
+}
+main .master_play .vol{
+   position: relative;
+   width: 100px;
+   height: 2px;
+   background: #2f2f2f;
+   margin-left: 50px;
+}
+main .master_play .vol .bi{
+   position: absolute;
+   font-size: 25px;
+   color: #fff;
+   top: -17px;
+   left: -30px;
+}
+main .master_play .vol input{
+   position: absolute;
+   width: 100%;
+   top: -6px;
+   left: 0;
+   cursor: pointer;
+   z-index: 999999999999999999999999999;
+   opacity: 0;
+}
+main .master_play .vol .vol_bar{
+   position: absolute;
+   background: #fff;
+   width: 50%;
+   height: 100%;
+   top: 0%;
+   transition: width 0.1s linear;
+}
 
- main .master_play .bar .dot::before{
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    left: -7px;
-    top: -6.5px;
-    box-shadow: inset 0px 0px 3px #2f2f2f;
- }
-
- main .master_play .bar input{
-    position: absolute;
-    width: 100%;
-    cursor: pointer;
-    left: 0px;
-    top: -7px;
-    z-index: 99999999999999999999999999999999999999999;
-    opacity: 0;
- }
-
- main .master_play .vol{
-    position: relative;
+.poster_img {
     width: 100px;
-    height: 2px;
-    background: #2f2f2f;
-    margin-left: 50px;
- }
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+}
 
- main .master_play .vol .bi{
-    position: absolute;
-    font-size: 25px;
-    color: #fff;
-    top: -17px;
-    left: -30px;
- }
-
- main .master_play .vol input{
-    position: absolute;
-    width: 100%;
-    top: -6px;
-    left: 0;
-    cursor: pointer;
-    z-index: 999999999999999999999999999;
-    opacity: 0;
- }
-
- main .master_play .vol .vol_bar{
-    position: absolute;
-    background: #fff;
-    width: 50%;
-    height: 100%;
-    top: 0%;
-    transition: 1s linear;
- }
-
- main .master_play .vol .dot::before{
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    left: -7px;
-    top: -6.5px;
-    box-shadow: inset 0px 0px 3px #2f2f2f;
- }
-
+.track_info h5 {
+    margin: 0;
+    font-size: 18px;
+}
 
 /****************************************************************************************************************/
 main .master_play .wave {
@@ -386,7 +376,7 @@ main .master_play .active1 .wave1:nth-child(3) {
     text-align: center;
 }
 
-span.caret {
+span .caret {
     position: absolute;
     left: 90%;
     top: 45%;
@@ -527,7 +517,23 @@ a {
     gap: 20px;
     overflow: hidden;
 }
+/*********************************************************************/
+.spotify-playlists .item .play {
+    position: absolute;
+    right: 10px;
+    top: -20px;
+    padding: 18px;
 
+    color: #2f2f2f;
+    font-size: 20px;
+
+  }
+
+  .song_side .spotify-playlists .list .item:hover .play {
+    display: block;
+  }
+
+/*********************************************************************/
 .song_side .spotify-playlists .list .item {
     min-width: 140px;
     width: 160px;
@@ -551,7 +557,7 @@ a {
 .song_side .spotify-playlists .list .item .play {
     position: relative;
 }
-
+/*********************************/
 .song_side .spotify-playlists .list .item .play .fa {
     position: absolute;
     right: 10px;
@@ -588,4 +594,3 @@ a {
     margin: 70px 0 0;
     border-color: #636363;
 }
-

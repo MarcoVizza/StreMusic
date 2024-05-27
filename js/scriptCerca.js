@@ -1,16 +1,14 @@
 const APIController = (function() {
-    
     const clientId = '0844eff3c0e64ea2af8707df806b8682';
     const clientSecret = '881096180b154e83b67355c12c5a8ad5';
 
     // metodi privati
     const _getToken = async () => {
-
         const result = await fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded', 
-                'Authorization' : 'Basic ' + btoa( clientId + ':' + clientSecret)
+                'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
             },
             body: 'grant_type=client_credentials'
         });
@@ -20,7 +18,6 @@ const APIController = (function() {
     }
     
     const _getGenres = async (token) => {
-
         const result = await fetch(`https://api.spotify.com/v1/browse/categories?locale=it_IT`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
@@ -31,9 +28,7 @@ const APIController = (function() {
     }
 
     const _getPlaylistByGenre = async (token, genreId) => {
-
         const limit = 10;
-        
         const result = await fetch(`https://api.spotify.com/v1/browse/categories/${genreId}/playlists?limit=${limit}`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
@@ -44,9 +39,7 @@ const APIController = (function() {
     }
 
     const _getTracks = async (token, tracksEndPoint) => {
-
         const limit = 10;
-
         const result = await fetch(`${tracksEndPoint}?limit=${limit}`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
@@ -57,7 +50,6 @@ const APIController = (function() {
     }
 
     const _getTrack = async (token, trackEndPoint) => {
-
         const result = await fetch(`${trackEndPoint}`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
@@ -86,10 +78,8 @@ const APIController = (function() {
     }
 })();
 
-
 // Modulo UI
 const UIController = (function() {
-
     // oggetto per mantenere i riferimenti agli elementi HTML
     const DOMElements = {
         selectGenre: '#select_genre',
@@ -97,12 +87,12 @@ const UIController = (function() {
         buttonSubmit: '#btn_submit',
         divSongDetail: '#song-detail',
         hfToken: '#hidden_token',
-        divSonglist: '.song-list'
+        divSonglist: '.song-list',
+        masterPlay: '#master_play',
     }
 
     // metodi pubblici
     return {
-
         // metodo per ottenere i campi di input
         inputField() {
             return {
@@ -110,7 +100,8 @@ const UIController = (function() {
                 playlist: document.querySelector(DOMElements.selectPlaylist),
                 tracks: document.querySelector(DOMElements.divSonglist),
                 submit: document.querySelector(DOMElements.buttonSubmit),
-                songDetail: document.querySelector(DOMElements.divSongDetail)
+                songDetail: document.querySelector(DOMElements.divSongDetail),
+                masterPlay: document.querySelector(DOMElements.masterPlay)
             }
         },
 
@@ -133,26 +124,41 @@ const UIController = (function() {
 
         // necessità di un metodo per creare il dettaglio della canzone
         createTrackDetail(img, title, artist) {
-
             const detailDiv = document.querySelector(DOMElements.divSongDetail);
             // ogni volta che l'utente clicca su una nuova canzone, dobbiamo svuotare il div del dettaglio della canzone
             detailDiv.innerHTML = '';
 
             const html = 
             `
-            <div class="row col-sm-6 px-0">
+            <div class="row col-sm-8 px-0">
                 <img src="${img}" alt="">        
             </div>
-            <div class="row col-sm-6 px-0">
-                <label for="Genre" class="form-label col-sm-12">${title}:</label>
+            <div class="row col-sm-8 px-0">
+                <label for="Genre" class="form-label col-sm-12">${title}</label>
             </div>
-            <div class="row col-sm-4 px-0">
-                <label for="artist" class="form-label col-sm-12">Di ${artist}:</label>
+            <div class="row col-sm-5 px-0">
+                <label for="artist" class="form-label col-sm-12">Di: ${artist}</label>
             </div> 
             `;
 
-            detailDiv.insertAdjacentHTML('beforeend', html)
+            detailDiv.insertAdjacentHTML('beforeend', html);
+        },
 
+        // metodo per mostrare la canzone nel div master_play
+        showTrackInMasterPlay(img, title, artist) {
+            const masterPlay = document.querySelector(DOMElements.masterPlay);
+            const posterMasterPlay = document.querySelector(DOMElements.posterMasterPlay);
+
+            posterMasterPlay.src = img;
+            masterPlay.innerHTML = `
+                <div class="master_play_info">
+                    <img src="${img}" alt="${title}" class="poster_img">
+                    <div class="track_info">
+                        <h5>${title}</h5>
+                        <p>${artist}</p>
+                    </div>
+                </div>
+            `;
         },
 
         resetTrackDetail() {
@@ -179,11 +185,9 @@ const UIController = (function() {
             }
         }
     }
-
 })();
 
 const APPController = (function(UICtrl, APICtrl) {
-
     // ottenere il riferimento all'oggetto del campo di input
     const DOMInputs = UICtrl.inputField();
 
@@ -214,8 +218,7 @@ const APPController = (function(UICtrl, APICtrl) {
          // creare un elemento di lista di riproduzione per ogni playlist restituita
          playlist.forEach(p => UICtrl.createPlaylist(p.name, p.tracks.href));
      });
-      
- 
+
     // creare un listener per l'evento di clic sul pulsante di invio
     DOMInputs.submit.addEventListener('click', async (e) => {
         // prevenire il ripristino della pagina
@@ -232,7 +235,6 @@ const APPController = (function(UICtrl, APICtrl) {
         const tracks = await APICtrl.getTracks(token, tracksEndPoint);
         // creare un elemento di lista di tracce
         tracks.forEach(el => UICtrl.createTrack(el.track.href, el.track.name))
-        
     });
 
     // creare un listener per l'evento di clic sulla selezione della traccia
@@ -251,16 +253,16 @@ const APPController = (function(UICtrl, APICtrl) {
         const track = await APICtrl.getTrack(token, trackEndpoint);
         // caricare i dettagli della traccia
         UICtrl.createTrackDetail(track.album.images[2].url, track.name, track.artists[0].name);
-
+        // mostrare la traccia nel div master_play
+        UICtrl.showTrackInMasterPlay(track.album.images[2].url, track.name, track.artists[0].name);
     });    
 
     return {
         init() {
-            console.log('L\'app sta partendo');
+            console.log("L'app sta partendo");
             loadGenres();
         }
     }
-
 })(UIController, APIController);
 
 // sarà necessario chiamare un metodo per caricare i generi al caricamento della pagina
